@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
     public float jumpForce = 100f;
     public Medal medal;
     public string walkAnimation = "Walk";
+    public string jumpAnimation = "Jump";
     public Animator anim;
     private float _inputAxis;
     private float _inputVertical;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour {
     void Jump() {
         if(Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Z)))  {
             rb2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            anim.SetTrigger(jumpAnimation);
             Debug.Log("Jump");
         }
     }

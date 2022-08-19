@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Medal
   - JumpMedal
+  - Deadly
   layers:
   - Default
   - TransparentFX
