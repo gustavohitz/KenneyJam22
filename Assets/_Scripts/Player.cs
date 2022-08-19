@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
     
     public Rigidbody2D rb2D;
     public float speed = 4f;
+    public float jumpForce = 100f;
+    public Medal medal;
     public string walkAnimation = "Walk";
     public Animator anim;
     private float _inputAxis;
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour {
     }
     void Update() {
         Move();
+        Jump();
     }
 
     void FixedUpdate() {
@@ -40,5 +43,10 @@ public class Player : MonoBehaviour {
             anim.SetBool(walkAnimation, false);
         }
     }
-
+    void Jump() {
+        if(Input.GetKeyDown(KeyCode.Space) || (Input.GetKeyDown(KeyCode.Z)))  {
+            rb2D.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
+            Debug.Log("Jump");
+        }
+    }
 }
