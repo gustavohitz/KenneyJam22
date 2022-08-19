@@ -6,6 +6,8 @@ public class Player : MonoBehaviour {
     
     public Rigidbody2D rb2D;
     public float speed = 4f;
+    public string walkAnimation = "Walk";
+    public Animator anim;
     private float _inputAxis;
     private float _inputVertical;
 
@@ -29,6 +31,13 @@ public class Player : MonoBehaviour {
         
         if(_inputAxis < 0) {
             transform.eulerAngles = new Vector2(0f, 180f);
+        }
+
+        if(Input.GetAxis("Horizontal") != 0) {
+            anim.SetBool(walkAnimation, true);
+        }
+        else {
+            anim.SetBool(walkAnimation, false);
         }
     }
 
